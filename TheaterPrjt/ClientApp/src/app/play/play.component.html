@@ -1,0 +1,50 @@
+<h1 id="tableLabel">Plays in {{theaterName}}</h1>
+
+<table>
+  <tr>
+    <td class="menu-first-cell">
+      <label><strong>Name</strong></label><br>
+      <input type="text" [(ngModel)]="playName">
+    </td>
+    <td class="menu-first-cell">
+      <label><strong>Effective Time</strong></label><br>
+      <input type="datetime-local" [(ngModel)]="effectiveTime">
+    </td>
+    <td>
+      <br>
+      <button class="btn btn-primary" (click)="search()">Search</button>
+    </td>
+    <td>
+      <br>
+      <button class="btn btn-primary" *ngIf="isAdmin" (click)="add()">Add</button>
+    </td>
+  </tr>
+</table>
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th></th>
+      <th *ngIf="isAdmin"></th>
+      <th *ngIf="isAdmin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let play of plays">
+      <td>{{ play.playName }}</td>
+      <td>{{ play.startTime}}</td>
+      <td>{{ play.endTime }}</td>
+      <td>
+        <button class="btn btn-info" (click)="view(play)">View</button>
+      </td>
+      <td *ngIf="isAdmin">
+        <button class="btn btn-secondary" mat-raised-button (click)="edit(play)">Edit</button>
+      </td>
+      <td *ngIf="isAdmin">
+        <button class="btn btn-danger" (click)="delete(play)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

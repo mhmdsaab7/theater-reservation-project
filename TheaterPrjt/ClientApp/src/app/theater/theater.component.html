@@ -1,0 +1,43 @@
+<h1 id="tableLabel">Theaters</h1>
+
+
+<table>
+  <tr>
+    <td class="menu-first-cell">
+      <label><strong>Name</strong></label><br>
+      <input type="text" [(ngModel)]="theaterName">
+    </td>
+    <td>
+      <br>
+      <button class="btn btn-primary" (click)="search()">Search</button>
+    </td>
+    <td>
+      <br>
+      <button class="btn btn-primary" *ngIf="isAdmin" (click)="add()">Add</button>
+    </td>
+  </tr>
+</table>
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th>Name</th>      
+      <th></th>
+      <th *ngIf="isAdmin"></th>
+      <th *ngIf="isAdmin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let theater of theaters">
+      <td>{{ theater.theaterName }}</td>      
+      <td>
+        <button class="btn btn-info" (click)="view(theater)">View</button>
+      </td>
+      <td *ngIf="isAdmin">
+        <button class="btn btn-secondary" mat-raised-button (click)="edit(theater)">Edit</button>
+      </td>
+      <td *ngIf="isAdmin">
+        <button class="btn btn-danger" (click)="delete(theater)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

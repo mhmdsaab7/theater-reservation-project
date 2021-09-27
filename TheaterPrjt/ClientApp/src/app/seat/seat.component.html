@@ -1,0 +1,55 @@
+<h1 id="tableLabel">Seats of {{playName}} in {{theaterName}}</h1>
+
+
+<table>
+  <tr>
+    <td class="menu-first-cell">
+      <label><strong>Number</strong></label><br>
+      <input type="text" [(ngModel)]="seatNumber">
+    </td>
+    <td>
+      <br>
+      <button class="btn btn-primary" (click)="search()">Search</button>
+    </td>
+    <td>
+      <br>
+      <button class="btn btn-primary" *ngIf="isAdmin" (click)="add()">Add</button>
+    </td>
+  </tr>
+</table>
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th>Seat Number</th>
+      <th>Status</th>
+      <th></th>
+      <th *ngIf="isAdmin"></th>
+      <th *ngIf="isAdmin"></th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let seat of seatdetails">
+      <td>{{ seat.seatNumber }}</td>
+      <td class="status" [ngClass]="getClass(seat)">{{ seat.seatStatusName }}</td>
+      <td *ngIf="showReserveAction(seat)">
+        <button class="btn btn-info" (click)="reserve(seat)">Reserve</button>
+      </td>
+
+      <td *ngIf="isAdmin">
+        <button class="btn btn-secondary" mat-raised-button (click)="edit(seat)">Edit</button>
+      </td>
+      <td *ngIf="isAdmin">
+        <button class="btn btn-danger" (click)="delete(seat)">Delete</button>
+      </td>
+      <td *ngIf="showConfirmAction(seat)">
+        <button class="btn btn-success" (click)="confirm(seat)">Confirm</button>
+      </td>
+      <td *ngIf="showDeclineAction(seat)">
+        <button class="btn btn-danger" (click)="decline(seat)">Decline</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Play Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+    <mat-label>End Date</mat-label>
+    <input type="datetime-local" matInput [(ngModel)]="data.startTime">
+    <mat-label>Start Date</mat-label>
+    <input type="datetime-local" matInput [(ngModel)]="data.endTime">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.Name" cdkFocusInitial>Save</button>
+</div>

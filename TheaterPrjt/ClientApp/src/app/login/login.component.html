@@ -1,0 +1,14 @@
+<h2>Login</h2>
+<div class="form-group">
+  <label for="username">Username</label><br />
+  <input type="text" [(ngModel)]="username" />
+</div>
+<div class="form-group">
+  <label for="password">Password</label><br />
+  <input type="password" [(ngModel)]="password" />
+</div>
+<div class="form-group">
+  <button [disabled]="username==null||username==''||password==null||password==''" (click)="onSubmit()" class="btn btn-primary">
+    Login
+  </button>
+</div>
