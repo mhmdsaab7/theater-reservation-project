@@ -1,8 +1,8 @@
 # theater-reservation-project
  
-#publishing theater reservation project, along with database backup in DB backup folder.
+publishing theater reservation project, along with database backup in DB backup folder.
 
-#Release Notes:
+Release Notes:
 1. Login credentials:
 Admin: username:"Admin", password:"test"
 User1: username:"user1", password:"test"
